@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>حل معادله با روش نیوتن</title>
+
+  <!-- مهم برای موبایل -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+
+  <header class="app-header">
+    حل معادله با روش نیوتن
+  </header>
+
+  <main class="app-layout">
+
+    <!-- Sidebar / Form -->
+    <aside class="sidebar">
+      <h3>ورودی‌ها</h3>
+
+      <label>تابع f(x)</label>
+      <input id="formula" placeholder="مثال: sin(x)-x/2" />
+
+      <label>حدس اولیه (x₀)</label>
+      <input id="x0" value="1" />
+
+      <label>خطا (Tolerance)</label>
+      <input id="tol" value="0.0001" />
+
+      <label>حداکثر تکرار</label>
+      <input id="max_iter" value="50" />
+
+      <button onclick="solve()">محاسبه</button>
+    </aside>
+
+    <!-- Content -->
+    <section class="content">
+      <h3 id="result"></h3>
+
+      <div class="table-wrapper">
+        <table id="iteration-table" class="styled-table">
+          <thead>
+            <tr>
+              <th>تکرار</th>
+              <th>xₙ</th>
+              <th>f(xₙ)</th>
+              <th>خطا</t>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
